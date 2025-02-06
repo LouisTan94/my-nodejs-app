@@ -51,8 +51,8 @@ jobs:
         run: |
           tar -czf artifact-${NEW_TAG}.tar.gz dist/
           
-      - name: Upload to GitHub Registry
-        uses: actions/upload-artifact@v3
+      - name: Upload to GitHub Actions storage
+        uses: actions/upload-artifact@v3.1.0
         with:
           name: build-artifact
           path: artifact-${NEW_TAG}.tar.gz
