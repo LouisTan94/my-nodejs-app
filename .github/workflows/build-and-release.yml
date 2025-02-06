@@ -46,15 +46,14 @@ jobs:
         run: |
           npm install
           npm run build
-          tar -czf artifact-${NEW_TAG}.tar.gz dist/*
           
-#      - name: Create tarball
-#        run: |
-#          if [ ! -d "dist" ]; then
-#            echo "Directory 'dist' not found"
-#            exit 1
-#          fi
-#          tar -czf artifact-${NEW_TAG}.tar.gz dist/*
+      - name: Create tarball
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "Directory 'dist' not found"
+            exit 1
+          fi
+          tar -czf artifact-${NEW_TAG}.tar.gz dist/*
           
       - name: Upload to GitHub Actions storage
         uses: actions/upload-artifact@v4
