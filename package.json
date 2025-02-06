@@ -1,10 +1,11 @@
 {
-  "name": "my-nodejs-app",
+  "name": "my-node-app",
   "version": "1.0.0",
-  "description": "A simple Node.js application that responds with 'Hello World'.",
+  "description": "A simple Node.js application using Express",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "build": "npm pack"
   },
   "dependencies": {
     "express": "^4.17.1"
