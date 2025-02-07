@@ -2,7 +2,7 @@
 
 # My Node.js App
 
-This is a simple Node.js application that responds with "Hello World" when accessed.
+This is a simple GitHub Action that demonstrates how to create a Node.js application and deploy it to GitHub Releases.
 
 ## Getting Started
 
@@ -10,29 +10,13 @@ This is a simple Node.js application that responds with "Hello World" when acces
 
 - Node.js (version 18 or higher)
 
-### Installation
+### Running of the application
 
-1. Clone the repository:
-   ```
-   git clone <repository-url>
-   ```
-2. Navigate to the project directory:
-   ```
-   cd my-nodejs-app
-   ```
-3. Install the dependencies:
-   ```
-   npm install
-   ```
+1. Create a Pull Request (PR) to this repository.
 
-### Running the Application
+2. Once the PR is merged, the GitHub Action will automatically build and deploy the application to GitHub Releases.
 
-To start the application, run the following command:
-```
-npm start
-```
-
-The application will be running on `http://localhost:3000`. You can access it in your web browser or use a tool like `curl` to see the "Hello World" response.
+3. Once the application is deployed, you can access it by clicking on the "Releases" tab in the repository and selecting the latest release.
 
 ### License
 
