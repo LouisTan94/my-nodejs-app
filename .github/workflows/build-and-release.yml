@@ -42,7 +42,7 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Set version from package.json
+      - name: Set name from package.json
         run: |
           chmod +x set-name.sh
           ./set-name.sh    
@@ -52,13 +52,13 @@ jobs:
           npm install
           npm run build
           chmod -R 400 ${{ env.NEW_NAME }}-* 
-          mv ${{ env.NEW_NAME }}-* my-node-app-${NEW_TAG}.tgz 
-          
+          mv ${{ env.NEW_NAME }}-* my-node-app-${{ env.NEW_TAG }}.tgz
+
       - name: Upload to GitHub Actions storage
         uses: actions/upload-artifact@v4
         with:
           name: build-artifact
-          path: my-node-app-${NEW_TAG}.tar.gz
+          path: my-node-app-${{ env.NEW_TAG }}.tgz
           
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
