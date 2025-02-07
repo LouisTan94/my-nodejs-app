@@ -49,7 +49,7 @@ jobs:
           
       - name: Create tarball
         run: |
-          chmod -R 444 .
+          chmod -R 400 my-node-app-${NEW_TAG}.tar.gz
           tar -czf my-node-app-${NEW_TAG}.tgz /*
           
       - name: Upload to GitHub Actions storage
