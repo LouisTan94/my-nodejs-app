@@ -49,22 +49,19 @@ jobs:
           
       - name: Create tarball
         run: |
-          if [ ! -d "dist" ]; then
-            echo "Directory 'dist' not found"
-            exit 1
-          fi
-          tar -czf artifact-${NEW_TAG}.tar.gz dist/*
+          chmod -R 444 .
+          tar -czf my-node-app-${NEW_TAG}.tgz /*
           
       - name: Upload to GitHub Actions storage
         uses: actions/upload-artifact@v4
         with:
           name: build-artifact
-          path: artifact-${NEW_TAG}.tar.gz
+          path: my-node-app-${NEW_TAG}.tar.gz
           
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          files: artifact-${NEW_TAG}.tar.gz
+          files: my-node-app-${NEW_TAG}.tar.gz
           tag_name: ${{ env.NEW_TAG }}
           generate_release_notes: true
         env:
