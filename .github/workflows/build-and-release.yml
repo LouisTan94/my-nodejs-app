@@ -41,13 +41,18 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          
+
+      - name: Set version from package.json
+        run: |
+          chmod +x set-version.sh
+          ./set-version.sh    
+
       - name: Build application
         run: |
           npm install
           npm run build
-          chmod -R 400 my-node-app-${NEW_TAG}.tar.gz
-          tar -czf my-node-app-${NEW_TAG}.tgz /*
+          chmod -R 400 my-node-app-${{ env.NEW_TAG }}.tgz 
+          mv my-node-app-${{ env.NEW_TAG }}.tgz my-node-app-${NEW_TAG}.tgz 
           
       - name: Upload to GitHub Actions storage
         uses: actions/upload-artifact@v4
