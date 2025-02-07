@@ -44,8 +44,8 @@ jobs:
 
       - name: Set version from package.json
         run: |
-          chmod +x set-version.sh
-          ./set-version.sh    
+          chmod +x set-name.sh
+          ./set-name.sh    
 
       - name: Build application
         run: |
